@@ -10,9 +10,9 @@ public abstract sealed class ChessPiece permits Pawn, Rook, Knight, King, Queen,
         this.position = new Position(rank, file);
     }
 
-    public void play(String rank, Integer file){
+    public void play(String rank, Integer file) {
         var position = checkPosition();
-        if(checkMovement(position)){
+        if (checkMovement(position)) {
             move(rank, file);
         }
 
@@ -21,21 +21,20 @@ public abstract sealed class ChessPiece permits Pawn, Rook, Knight, King, Queen,
     /**
      * Get your current position
      */
-    public Position checkPosition(){
+    public Position checkPosition() {
         return this.position;
     }
 
     /**
-     *Check Possible movements for Selected piece
+     * Check if the selected move is possible for this chess
      */
     protected abstract boolean checkMovement(Position position);
 
     /**
      * Make a move in one of the possible positions
      */
-    protected void move(final String rank, final Integer file){
+    protected void move(final String rank, final Integer file) {
         this.position = new Position(rank, file);
     }
 
-    record Position(String rank, Integer file){}
 }

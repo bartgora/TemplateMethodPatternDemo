@@ -7,7 +7,6 @@ public final class King extends ChessPiece {
 
     @Override
     public boolean checkMovement(Position position) {
-
         return false;
     }
 

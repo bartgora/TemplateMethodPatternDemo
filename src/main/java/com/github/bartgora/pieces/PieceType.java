@@ -1,20 +1,20 @@
 package com.github.bartgora.pieces;
 
 public enum PieceType {
-    PAWN('P'),
-    ROOK('R'),
-    KNIGHT('N'),
-    QUEEN('Q'),
-    BISHOP('B'),
-    KING('K');
+    PAWN("P"),
+    ROOK("R"),
+    QUEEN("Q"),
+    KNIGHT("N"),
+    BISHOP("B"),
+    KING("K");
 
-    private final char value;
+    private final String value;
 
-    PieceType(char piece) {
+    PieceType(String piece) {
         this.value = piece;
     }
 
-    public char getValue() {
+    public String getValue() {
         return value;
     }
 }
