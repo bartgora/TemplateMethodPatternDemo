@@ -3,34 +3,39 @@ package com.github.bartgora.pieces;
 public abstract sealed class ChessPiece permits Pawn, Rook, Knight, King, Queen, Bishop {
 
     protected final PieceType type;
-    protected final String rank;
-    protected final Integer file;
+    protected Position position;
 
     protected ChessPiece(PieceType type, String rank, Integer file) {
         this.type = type;
-        this.rank = rank;
-        this.file = file;
+        this.position = new Position(rank, file);
+    }
+
+    public void play(String rank, Integer file){
+        var position = checkPosition();
+        if(checkMovement(position)){
+            move(rank, file);
+        }
+
     }
 
     /**
-     * Check your current position
+     * Get your current position
      */
-    public abstract void checkPosition();
+    public Position checkPosition(){
+        return this.position;
+    }
 
     /**
-     *Check Possible movement
+     *Check Possible movements for Selected piece
      */
-    public abstract void checkMovement();
+    protected abstract boolean checkMovement(Position position);
 
     /**
      * Make a move in one of the possible positions
      */
-    public abstract void move();
-
-    public void play(){
-        checkPosition();
-        checkMovement();
-        move();
-
+    protected void move(final String rank, final Integer file){
+        this.position = new Position(rank, file);
     }
+
+    record Position(String rank, Integer file){}
 }

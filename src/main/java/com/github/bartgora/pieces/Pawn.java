@@ -7,17 +7,9 @@ public final class Pawn extends ChessPiece {
     }
 
     @Override
-    public void checkPosition() {
+    public boolean checkMovement(Position position) {
 
+        return false;
     }
 
-    @Override
-    public void checkMovement() {
-
-    }
-
-    @Override
-    public void move() {
-
-    }
 }

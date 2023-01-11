@@ -5,18 +5,11 @@ public final class Rook extends ChessPiece {
         super(PieceType.ROOK, rank, file);
     }
 
-    @Override
-    public void checkPosition() {
-
-    }
 
     @Override
-    public void checkMovement() {
+    public boolean checkMovement(Position position) {
 
+        return false;
     }
 
-    @Override
-    public void move() {
-
-    }
 }
